@@ -1,0 +1,34 @@
+# The URL the site will be built for
+base_url = "https://bjonord.def-end.se"
+
+title = "bjonord"
+description = "Stuff found noteworthy."
+generate_feed = true
+feed_filename = "rss.xml"
+feed_limit = 20
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+theme = "henry"
+
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+highlight_theme = "solarized-dark"
+render_emoji = true
+smart_punctuation = true
+
+[extra]
+# Put all your custom variables here
+henry_links = [
+    {url = "/about", name = "About"},
+    {url = "https://github.com/bjonord", name = "Projects"},
+]
+henry_github = "https://github.com/bjonord"
+henry_twitter = "https://twitter.com/bjorn_north"
