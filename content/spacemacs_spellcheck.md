@@ -14,7 +14,7 @@ Sometimes it is nice to have some spellchecking squiggles even in your code edit
 You could have any number of dictionaries you would like and alter between them as you see fit, but to start out I suggest picking what you are hoping to use as a default.
 I chose to use `en`, which you can download like so:
 
-```
+```sh
 > wget https://github.com/wooorm/dictionaries/blob/main/dictionaries/en/index.dic -O en.dic
 > wget https://github.com/wooorm/dictionaries/blob/main/dictionaries/en/index.aff -O en.aff
 ```
@@ -24,7 +24,7 @@ I chose to use `en`, which you can download like so:
 
 I made sure to soft link these files as follows as well:
 
-```
+```sh
 > ln -s en.dic default.dic
 > ln -s en.aff default.aff
 > ln -s en.dic english.dic
