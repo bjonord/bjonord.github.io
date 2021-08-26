@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>bjonord</title>
+        <link>https://bjonord.def-end.se</link>
+        <description>Stuff found noteworthy.</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://bjonord.def-end.se/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 07 Mar 2021 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>Note - Hello world!</title>
+            <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
+            <link>https://bjonord.def-end.se/hello-world/</link>
+            <guid>https://bjonord.def-end.se/hello-world/</guid>
+            <description>&lt;h1 id=&quot;a-notepad&quot;&gt;A notepad&lt;&#x2F;h1&gt;
+&lt;p&gt;It was time to create a blog so I can stop having to peruse the internet for the solutions I found earlier.&lt;&#x2F;p&gt;
+&lt;p&gt;So this will essentially be a public notepad of the things I come upon or learn.&lt;&#x2F;p&gt;
+&lt;p&gt;Topics will probably range from: Carpentry(the trade you require a hammer for) to Rust(the language).&lt;&#x2F;p&gt;
+&lt;p&gt;Do not expect words entered in perfection.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>Spacemacs - spell-checking with hunspell(OS X)</title>
+            <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
+            <link>https://bjonord.def-end.se/spacemacs-spellcheck/</link>
+            <guid>https://bjonord.def-end.se/spacemacs-spellcheck/</guid>
+            <description>&lt;p&gt;Sometimes it is nice to have some spellchecking squiggles even in your code editor.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;steps-to-get-up-and-running&quot;&gt;Steps to get up and running&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Add the &lt;code&gt;spell-checking&lt;&#x2F;code&gt; layer in your dotfile.&lt;&#x2F;li&gt;
+&lt;li&gt;Install &lt;code&gt;hunspell&lt;&#x2F;code&gt; using your package manager(brew in my case)&lt;&#x2F;li&gt;
+&lt;li&gt;download some .aff and .dic files, found this repository to be a useful source: &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;wooorm&#x2F;dictionaries&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;wooorm&#x2F;dictionaries&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;You could have any number of dictionaries you would like and alter between them as you see fit, but to start out I suggest picking what you are hoping to use as a default.
+I chose to use &lt;code&gt;en&lt;&#x2F;code&gt;, which you can download like so:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; wget https:&#x2F;&#x2F;github.com&#x2F;wooorm&#x2F;dictionaries&#x2F;blob&#x2F;main&#x2F;dictionaries&#x2F;en&#x2F;index.dic&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; -O&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; en.dic
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; wget https:&#x2F;&#x2F;github.com&#x2F;wooorm&#x2F;dictionaries&#x2F;blob&#x2F;main&#x2F;dictionaries&#x2F;en&#x2F;index.aff&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; -O&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; en.aff
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;em&gt;I named my files&lt;code&gt;en.dic&lt;&#x2F;code&gt; and &lt;code&gt;en.aff&lt;&#x2F;code&gt;, but you could name them whatever you prefer, just remember to set your &lt;code&gt;DICTIONARY&lt;&#x2F;code&gt; env appropriately(if you need to do that).&lt;&#x2F;em&gt;
+&lt;em&gt;Best practice is to use the language codes i.e. en_GB, sv_SE&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I made sure to soft link these files as follows as well:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; ln -s en.dic default.dic
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; ln -s en.aff default.aff
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; ln -s en.dic english.dic
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; ln -s en.aff english.aff
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The default is what hunspell uses if you do not pick a dictionary(&lt;code&gt;hunspell -d &#x2F;dev&#x2F;null&lt;&#x2F;code&gt; and you’ll see), however this does not transfer to &lt;code&gt;ispell&lt;&#x2F;code&gt; in emacs.
+&lt;code&gt;ispell&lt;&#x2F;code&gt; will use what matches your &lt;code&gt;LANG&lt;&#x2F;code&gt; or &lt;code&gt;DICTIONARY&lt;&#x2F;code&gt; environment variables so I personally set &lt;code&gt;DICTIONARY&lt;&#x2F;code&gt; to match up with my choice, but you could do one of the following:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Change your emacs &lt;code&gt;LANG&lt;&#x2F;code&gt; env&lt;&#x2F;li&gt;
+&lt;li&gt;Rename the dictionary files to match you &lt;code&gt;LANG&lt;&#x2F;code&gt; env.&lt;&#x2F;li&gt;
+&lt;li&gt;Change your &lt;code&gt;DICTIONARY&lt;&#x2F;code&gt; env&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I went with the latter, as my knee jerk feeling to alter the &lt;code&gt;LANG&lt;&#x2F;code&gt; felt wrong.
+To set your &lt;code&gt;DICTIONARY&lt;&#x2F;code&gt; env, the easiest is to open up your &lt;code&gt;~&#x2F;.spacemacs.env&lt;&#x2F;code&gt; file and just add: &lt;code&gt;DICTIONARY=&amp;lt;preferred lang&amp;gt;&lt;&#x2F;code&gt;; in my case: &lt;code&gt;DICTIONARY=en&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;A swift: &lt;code&gt;SPC + f + e + R&lt;&#x2F;code&gt; and you should be getting all the red squiggles you could hope for!&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;resources&quot;&gt;Resources&lt;&#x2F;h1&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;develop.spacemacs.org&#x2F;layers&#x2F;+checkers&#x2F;spell-checking&#x2F;README.html&quot;&gt;https:&#x2F;&#x2F;develop.spacemacs.org&#x2F;layers&#x2F;+checkers&#x2F;spell-checking&#x2F;README.html&lt;&#x2F;a&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.emacswiki.org&#x2F;emacs&#x2F;InteractiveSpell&quot;&gt;https:&#x2F;&#x2F;www.emacswiki.org&#x2F;emacs&#x2F;InteractiveSpell&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

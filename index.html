@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>bjonord</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://bjonord.def-end.se/style.css">
+    <link rel="stylesheet" href="https://bjonord.def-end.se/color/green.css">
+
+    <link rel="stylesheet" href="https://bjonord.def-end.se/font-hack-subset.css">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://bjonord.def-end.se" style="text-decoration: none;">
+                    <div class="logo">
+                            Terminimal theme
+                        </div>
+                </a>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <ul class="menu__inner">
+                
+                <li class="active"><a href="https://bjonord.def-end.se">blog</a></li>
+            
+                <li><a href="https://bjonord.def-end.se/about">about me</a></li>
+            
+                <li><a href="https://github.com/bjonord" target="_blank" rel="noopener noreferrer">github</a></li>
+            
+                <li><a href="https://twitter.com/bjorn_north" target="_blank" rel="noopener noreferrer">twitter</a></li>
+            </ul>
+        </nav>
+    
+    </header>
+    
+
+    <div class="content">
+        
+        <div class="posts">
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://bjonord.def-end.se/hello-world/">Note - Hello world!</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2021-03-07
+        </span>
+
+    </div>
+
+    
+
+                    
+        <div class="post-content">
+            <h1 id="a-notepad">A notepad</h1>
+<p>It was time to create a blog so I can stop having to peruse the internet for the solutions I found earlier.</p>
+<p>So this will essentially be a public notepad of the things I come upon or learn.</p>
+<p>Topics will probably range from: Carpentry(the trade you require a hammer for) to Rust(the language).</p>
+<p>Do not expect words entered in perfection.</p>
+
+        </div>
+
+                </div>
+            
+                <div class="post on-list">
+                    
+    <h1 class="post-title"><a href="https://bjonord.def-end.se/spacemacs-spellcheck/">Spacemacs - spell-checking with hunspell(OS X)</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2021-03-07
+        </span>
+
+    </div>
+
+    
+
+                    
+        <div class="post-content">
+            <p>Sometimes it is nice to have some spellchecking squiggles even in your code editor.</p>
+<h2 id="steps-to-get-up-and-running">Steps to get up and running</h2>
+<ol>
+<li>Add the <code>spell-checking</code> layer in your dotfile.</li>
+<li>Install <code>hunspell</code> using your package manager(brew in my case)</li>
+<li>download some .aff and .dic files, found this repository to be a useful source: <a href="https://github.com/wooorm/dictionaries">https://github.com/wooorm/dictionaries</a></li>
+</ol>
+<p>You could have any number of dictionaries you would like and alter between them as you see fit, but to start out I suggest picking what you are hoping to use as a default.
+I chose to use <code>en</code>, which you can download like so:</p>
+<pre style="background-color:#272822;">
+<code class="language-sh" data-lang="sh"><span style="color:#f92672;">&gt;</span><span style="color:#f8f8f2;"> wget https://github.com/wooorm/dictionaries/blob/main/dictionaries/en/index.dic</span><span style="font-style:italic;color:#fd971f;"> -O</span><span style="color:#f8f8f2;"> en.dic
+</span><span style="color:#f92672;">&gt;</span><span style="color:#f8f8f2;"> wget https://github.com/wooorm/dictionaries/blob/main/dictionaries/en/index.aff</span><span style="font-style:italic;color:#fd971f;"> -O</span><span style="color:#f8f8f2;"> en.aff
+</span></code></pre>
+<p><em>I named my files<code>en.dic</code> and <code>en.aff</code>, but you could name them whatever you prefer, just remember to set your <code>DICTIONARY</code> env appropriately(if you need to do that).</em>
+<em>Best practice is to use the language codes i.e. en_GB, sv_SE</em></p>
+<p>I made sure to soft link these files as follows as well:</p>
+<pre style="background-color:#272822;">
+<code class="language-sh" data-lang="sh"><span style="color:#f92672;">&gt;</span><span style="color:#f8f8f2;"> ln -s en.dic default.dic
+</span><span style="color:#f92672;">&gt;</span><span style="color:#f8f8f2;"> ln -s en.aff default.aff
+</span><span style="color:#f92672;">&gt;</span><span style="color:#f8f8f2;"> ln -s en.dic english.dic
+</span><span style="color:#f92672;">&gt;</span><span style="color:#f8f8f2;"> ln -s en.aff english.aff
+</span></code></pre>
+<p>The default is what hunspell uses if you do not pick a dictionary(<code>hunspell -d /dev/null</code> and you’ll see), however this does not transfer to <code>ispell</code> in emacs.
+<code>ispell</code> will use what matches your <code>LANG</code> or <code>DICTIONARY</code> environment variables so I personally set <code>DICTIONARY</code> to match up with my choice, but you could do one of the following:</p>
+<ul>
+<li>Change your emacs <code>LANG</code> env</li>
+<li>Rename the dictionary files to match you <code>LANG</code> env.</li>
+<li>Change your <code>DICTIONARY</code> env</li>
+</ul>
+<p>I went with the latter, as my knee jerk feeling to alter the <code>LANG</code> felt wrong.
+To set your <code>DICTIONARY</code> env, the easiest is to open up your <code>~/.spacemacs.env</code> file and just add: <code>DICTIONARY=&lt;preferred lang&gt;</code>; in my case: <code>DICTIONARY=en</code>.</p>
+<p>A swift: <code>SPC + f + e + R</code> and you should be getting all the red squiggles you could hope for!</p>
+<h1 id="resources">Resources</h1>
+<p><a href="https://develop.spacemacs.org/layers/+checkers/spell-checking/README.html">https://develop.spacemacs.org/layers/+checkers/spell-checking/README.html</a>
+<a href="https://www.emacswiki.org/emacs/InteractiveSpell">https://www.emacswiki.org/emacs/InteractiveSpell</a></p>
+
+        </div>
+
+                </div>
+            <div class="pagination">
+                <div class="pagination__buttons"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2021
+ Bjorn Nordstrand</span>
+                    <span class="copyright-theme">
+                        <span class="copyright-theme-sep">:: </span>
+                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
+                    </span>
+                </div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
