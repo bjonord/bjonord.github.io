@@ -1,3 +1,6 @@
 [submodule "themes/henry"]
 	path = themes/henry
 	url = https://github.com/sirodoht/zola-henry.git
+[submodule "themes/terminimal"]
+	path = themes/terminimal
+	url = https://github.com/pawroman/zola-theme-terminimal.git
